@@ -1,14 +1,15 @@
 <template>
-  <div id="app">코드 시작!</div>
+  <div id="app">
+    코드 시작!
+    <router-view></router-view>
+  </div>
 </template>
 
 <script>
 export default {
   name: "app",
   data() {
-    return {
-      msg: "Welcome to Your Vue.js App",
-    };
+    return {};
   },
 };
 </script>
