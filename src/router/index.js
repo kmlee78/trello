@@ -7,7 +7,7 @@ import NotFound from "../components/NotFound.vue"
 Vue.use(VueRouter)
 
 const router = new VueRouter({
-    mode: "history",
+    mode: "history",    // 경로 앞에 /#/가 붙지 않아도 됨
     routes: [
         { path: "/", component: Home },
         { path: "/login", component: Login },
