@@ -21,8 +21,19 @@ const request = (method, url, data) => {
         })
 }
 
+// 모든 리퀘스트를 날리기 전에 헤더값에 토큰정보를 저장하기 위한 역할
+export const setAuthInHeader = token => {
+    axios.defaults.headers.common["Authorization"] = token ? `Bearer ${token}` : null
+}
+
 export const board = {
     fetch() {
         return request("get", "/boards")
+    }
+}
+
+export const auth = {
+    login(email, password) {
+        return request("post", "/login", { email, password })
     }
 }
