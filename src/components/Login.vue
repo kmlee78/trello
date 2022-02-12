@@ -59,7 +59,7 @@ export default {
     onSubmit() {
       auth
         .login(this.email, this.password)
-        .fetch((data) => {
+        .then((data) => {
           localStorage.setItem("token", data.accessToken);
           setAuthInHeader(data.accessToken);
           this.$router.push(this.rPath);
