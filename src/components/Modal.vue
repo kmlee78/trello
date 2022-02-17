@@ -69,6 +69,7 @@ export default {};
 
 .modal-default-button {
   float: right;
+  text-decoration: none;
 }
 
 /*
