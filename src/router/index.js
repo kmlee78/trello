@@ -5,13 +5,13 @@ import Login from "../components/Login.vue"
 import Board from "../components/Board.vue"
 import Card from "../components/Card.vue"
 import NotFound from "../components/NotFound.vue"
+import store from "../store"
 
 Vue.use(VueRouter)
 
 const requireAuth = (to, from, next) => {
-    const isAuth = localStorage.getItem("token")
     const loginPath = `/login?rPath=${encodeURIComponent(to.path)}`  // 로그인이 완료되면 다시 원래 경로로 돌아오라는 뜻
-    isAuth ? next() : next(loginPath)
+    store.getters.isAuth ? next() : next(loginPath)
 }
 
 const router = new VueRouter({
