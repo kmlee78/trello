@@ -28,7 +28,6 @@
 </template>
 
 <script>
-import { board } from "../api";
 import AddBoard from "./AddBoard.vue";
 import { mapState, mapMutations, mapActions } from "vuex";
 
