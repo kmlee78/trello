@@ -7,6 +7,9 @@ const mutations = {
   SET_BOARDS(state, boards) {
     state.boards = boards
   },
+  SET_BOARD(state, board) {
+    state.board = board
+  },
   LOGIN(state, token) {
     if (!token) return
     state.token = token
@@ -16,7 +19,7 @@ const mutations = {
   LOGOUT(state) {
     state.token = null
     delete localStorage.token
-    api.setAuthInHeader(null)
+    setAuthInHeader(null)
   }
 }
 
