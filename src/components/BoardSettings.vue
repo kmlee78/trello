@@ -5,19 +5,30 @@
       <a class="header-close-btn" href="" @click.prevent="onClose">&times;</a>
     </div>
     <ul class="menu-list">
-      <li>Menu 1</li>
+      <li><a href="" @click.prevent="onDeleteBoard">Delete Board</a></li>
     </ul>
   </div>
 </template>
 
 <script>
-import { mapMutations } from "vuex";
+import { mapState, mapMutations, mapActions } from "vuex";
 
 export default {
+  computed: {
+    ...mapState(["board"]),
+  },
   methods: {
     ...mapMutations(["SET_IS_SHOW_BOARD_SETTINGS"]),
+    ...mapActions(["DELETE_BOARD"]),
     onClose() {
       this.SET_IS_SHOW_BOARD_SETTINGS(false);
+    },
+    onDeleteBoard() {
+      if (!window.confirm(`Delete ${this.board.title} Board?`)) return;
+      this.DELETE_BOARD({ id: this.board.id }).then(() => {
+        this.onClose();
+        this.$router.push("/");
+      });
     },
   },
 };

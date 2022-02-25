@@ -17,6 +17,9 @@ const actions = {
       commit("SET_BOARD", data.item)
     })
   },
+  DELETE_BOARD(_, { id }) {
+    return api.board.destroy(id)
+  },
   LOGIN({ commit }, { email, password }) {
     return api.auth.login(email, password)
       .then(({ accessToken }) => {
