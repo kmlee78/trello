@@ -47,6 +47,10 @@ const actions = {
   DELETE_CARD({ dispatch, state }, { id }) {
     return api.card.destroy(id)
       .then(() => dispatch("FETCH_BOARD", { id: state.board.id }))
+  },
+  ADD_LIST({ dispatch, state }, { title, boardId, pos }) {
+    return api.list.create({ title, boardId, pos })
+      .then(() => dispatch("FETCH_BOARD", { id: state.board.id }))
   }
 }
 
